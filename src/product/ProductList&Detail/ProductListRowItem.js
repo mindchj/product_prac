@@ -3,7 +3,10 @@ import { withRouter } from 'react-router-dom';
 import './Product.css';
 
 const ProductListRowItem = (props) => {
+<<<<<<< HEAD
     console.log(props.row)
+=======
+>>>>>>> 6f3b9320d4320ff03e8b28cfc103a48db8450b1c
     let itemId = props.row.itemId
 
     return (

@@ -6,36 +6,20 @@ import StarIcon from '@material-ui/icons/Star';
 
 
 const ProductDetail = ({ match, history }) => {
-<<<<<<< HEAD
-    let itemId = match.params.itemId;
-    
-    
-=======
     //history로 보낸 itemId를 match.params로 받음 
     let itemId = match.params.itemId;
 
     //개별상품의 정보를 itemId로 받아 ProductOne에 저장 
->>>>>>> 6f3b9320d4320ff03e8b28cfc103a48db8450b1c
     const [ProductOne, setProductOne] = useState([]);
     useEffect(() => {
         const res = async () => {
             const result = await axios.get("https://alconn.co/api/item/list/itemid=" + itemId);
             setProductOne(result.data.data)
-<<<<<<< HEAD
-            console.log(result)
-        }
-        res();
-    }, [itemId])
-    console.log(ProductOne)
-    const [ProductList, setProductList] = useState([]);
-    console.log(ProductList)
-=======
         }
         res();
     }, [itemId])
 
     const [ProductList, setProductList] = useState([]);
->>>>>>> 6f3b9320d4320ff03e8b28cfc103a48db8450b1c
     useEffect(() => {
         const res = async () => {
             const result = await axios.get("https://alconn.co/api/item/list");
@@ -43,16 +27,6 @@ const ProductDetail = ({ match, history }) => {
         }
         res();
     }, [])
-<<<<<<< HEAD
-
-    const sendData = {
-        userSID: 5,
-        entity: 2,
-        itemId,
-    }
-
-=======
->>>>>>> 6f3b9320d4320ff03e8b28cfc103a48db8450b1c
     const [Review, setReview] = useState([]);
     useEffect(() => {
         const res = async () => {
@@ -71,15 +45,6 @@ const ProductDetail = ({ match, history }) => {
             setSu(su - 1);
         }
     }
-<<<<<<< HEAD
-    const addOneCart = () => {
-        const axiosAddOneCart = async () => {
-            await axios.post("http://192.168.0.13:9001/cart/add", sendData);
-        }
-        axiosAddOneCart();
-        alert("장바구니에 담았습니다.")
-    }
-=======
     // const addOneCart = () => {
     //     const axiosAddOneCart = async () => {
     //         await axios.post("https://alconn.co/api/cart/item",);
@@ -87,7 +52,6 @@ const ProductDetail = ({ match, history }) => {
     //     axiosAddOneCart();
     //     alert("장바구니에 담았습니다.")
     // }
->>>>>>> 6f3b9320d4320ff03e8b28cfc103a48db8450b1c
 
     return (
         <div className="total-wrap">
@@ -109,10 +73,7 @@ const ProductDetail = ({ match, history }) => {
                                     })}
                                 </select>
                             </div>
-<<<<<<< HEAD
-=======
                             <div>잔고수량 : {ProductOne.itemDetailFormList&&ProductOne.itemDetailFormList[0].stockQuantity}</div>
->>>>>>> 6f3b9320d4320ff03e8b28cfc103a48db8450b1c
                         </div>
                         <div className="productSeller">
                             <div className="seller">판매자 : {ProductOne.sellerSID}</div>
@@ -130,9 +91,6 @@ const ProductDetail = ({ match, history }) => {
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
-                            <button className="cart" onClick={addOneCart}>장바구니 담기</button>
-=======
                             <button className="cart" onClick={()=>{
                                 const sendData = {
                                     itemDetailId: ProductOne.itemDetailFormList[0].itemDetailId,
@@ -150,7 +108,6 @@ const ProductDetail = ({ match, history }) => {
                                 axiosAddOneCart();
                                 alert("장바구니에 담겼습니다.")
                                 }}>장바구니 담기</button>
->>>>>>> 6f3b9320d4320ff03e8b28cfc103a48db8450b1c
                             <button className="perchase" onClick={
                                 () => {
                                     const data = {
@@ -166,62 +123,6 @@ const ProductDetail = ({ match, history }) => {
                             }>바로구매</button>
                         </div>
                     </div>
-<<<<<<< HEAD
-                </div>
-                <div className="otherProduct">
-                    <h2>다른상품</h2>
-                    <ul className="otherProduct-ul">
-                        {
-                            ProductList && ProductList.map((row, idx) => {
-                                return (
-                                    <li row={row} key={idx}
-                                        onClick={
-                                            () => {
-                                                history.push("/member/4/product/selectOne/" + row.itemId+"/ProductDescBottom");
-                                            }
-                                        }>
-                                        <dl>
-                                            <dt>
-                                                <img alt={row.mainImg} src={row.mainImg} style={{ width: '230px', height: '230px' }} />
-                                            </dt>
-                                            <dd className="desc">
-                                                <div>
-                                                    <div className="namedesc">
-                                                        <div className="name">{row.itemName}</div>
-                                                    </div>
-                                                    <div className="price-area">
-                                                        <em className="sale">
-                                                            <strong className="price-value">{row.price}</strong>원
-                                                        </em>
-                                                    </div>
-                                                </div>
-                                            </dd>
-                                        </dl>
-                                    </li>)
-                            })
-                        }
-                    </ul>
-                </div>
-                <div className="productMenuBar" style={{ position: 'sticky' }}>
-                    <ul className="productMenuBarUl">
-                        <li className="ProductDescBottom" onClick={
-                            () => {
-                                history.push("/member/4/product/selectOne/" + itemId + "/ProductDescBottom");
-                            }
-                        }>상품상세</li>
-                        <li className="ProductReviewBottom" onClick={
-                            () => {
-                                history.push("/member/4/product/selectOne/" + itemId + "/ProductReviewBottom");
-                            }
-                        }>상품리뷰({Review.length})</li>
-                        <li className="ProductQuestionBottom" onClick={
-                            () => {
-                                history.push("/member/4/product/selectOne/" + itemId + "/ProductQuestionBottom");
-                            }
-                        }>상품문의</li>
-                    </ul>
-=======
->>>>>>> 6f3b9320d4320ff03e8b28cfc103a48db8450b1c
                 </div>
                 <div className="otherProduct">
                     <h2>다른상품</h2>
